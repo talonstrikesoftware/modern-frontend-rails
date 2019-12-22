@@ -1,0 +1,14 @@
+<%= simple_form_for(concert) do |form| %>
+
+  <%= form.input(:name) %>
+  <%= form.input(:description) %>
+  <%= form.input(:start_time, as: :date) %>
+  <%= form.association(:venue, wrapper: :select) %>
+  <%= form.input(:genre_tags) %>
+  <%= form.input(:ilk, collection: Concert.ilks, wrapper: :select) %>
+  <%= form.input(:access, collection: Concert.accesses, wrapper: :select) %>
+
+  <div class="actions">
+    <%= form.button(:submit) %>
+  </div>
+<% end %>

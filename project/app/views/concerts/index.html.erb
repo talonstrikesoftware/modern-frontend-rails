@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="title is-size-1">Concerts</h1>
+
+<%= link_to "New Concert", new_concert_path, class: "button is-primary" %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Start time</th>
+      <th>Venue</th>
+      <th>Ilk</th>
+      <th>Access</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @concerts.each do |concert| %>
+      <tr id="<%= dom_id(concert) %>">
+        <td><%= concert.name %></td>
+        <td><%= concert.description %></td>
+        <td><%= concert.start_time.by_example("Jan 2, 3:04") %></td>
+        <td><%= concert.venue.name %></td>
+        <td><%= concert.ilk %></td>
+        <td><%= concert.access %></td>
+        <td><%= link_to "Show", concert %></td>
+        <td><%= link_to "Edit", edit_concert_path(concert) %></td>
+        <td><%= link_to "Destroy", concert, method: :delete, data: {confirm: "Are you sure?"} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

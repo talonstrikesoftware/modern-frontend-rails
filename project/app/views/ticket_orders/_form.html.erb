@@ -1,0 +1,5 @@
+<%= simple_form_for(:ticket_order) do |form| %>
+
+  <%= form.association(:concert, wrapper: :select) %>
+  <%= form.button(:submit) %>
+<% end %>
