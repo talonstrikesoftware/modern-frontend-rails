@@ -21,6 +21,8 @@
 .byebug_history
 /project/public/packs
 /project/public/packs-test
+packs
+tmp
 
 # Ignore master key for decrypting credentials and more.
 /project/config/master.key

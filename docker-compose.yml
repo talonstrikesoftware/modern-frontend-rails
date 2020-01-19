@@ -9,7 +9,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ${PWD}/project:/usr/src/app
+      - ${PWD}/stimulus:/usr/src/app
     stdin_open: true
     tty: true
   postgres:
