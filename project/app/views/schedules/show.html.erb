@@ -37,8 +37,14 @@
         </h2>
         <section class="js--day-text">
           <% schedule_day.concerts.sort_by(&:start_time).each do |concert| %>
-            <article class="concert">
+            <article class="concert" 
+              data-text-toggle-target="concert"
+              data-controller="sold-out-concert"
+              data-sold-out-concert-id-value="<%= concert.id %>">
               <div class="columns">
+                <div class="column is-size-4 is-one-fifth" data-sold-out-concert-target="label">
+                On Sale
+                </div>
                 <div class="column is-size-4 is-one-fifth">
                   <%= concert.start_time.by_example("3:04 PM") %>
                 </div>

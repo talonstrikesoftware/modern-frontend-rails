@@ -1,0 +1,27 @@
+{
+  "name": "nxns",
+  "private": true,
+  "dependencies": {
+    "@rails/actioncable": "*",
+    "@rails/activestorage": "*",
+    "@rails/ujs": "*",
+    "@rails/webpacker": "^4.2.0",
+    "ts-loader": "^6.2.1",
+    "turbolinks": "*",
+    "typescript": "^3.7.2"
+  },
+  "version": "*",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "*",
+    "@typescript-eslint/parser": "*",
+    "eslint": "*",
+    "eslint-config-prettier": "*",
+    "eslint-plugin-prettier": "*",
+    "prettier": "*",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "scripts": {
+    "eslint": "eslint '*/**/*.{js,ts,tsx}'",
+    "eslint_fix": "eslint '*/**/*.{js,ts,tsx}' --fix"
+  }
+}

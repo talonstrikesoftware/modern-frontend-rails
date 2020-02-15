@@ -14,5 +14,6 @@ class SchedulesController < ApplicationController
       format.html
       format.json { render json: @concerts }
     end
+    gon.sold_out_concert_ids = @concerts.select(&:sold_out?).map(&:id)
   end
 end

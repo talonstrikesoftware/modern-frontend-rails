@@ -1,0 +1,13 @@
+<table class="table">
+  <tbody>
+    <% concert.venue.rows.times do %>
+      <tr>
+        <% concert.venue.seats_per_row.times do |seat_number| %>
+          <td>
+            <span class="button"><%= seat_number %></span>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

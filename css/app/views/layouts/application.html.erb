@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>North By North South</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <script defer="true"
+            src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
+    <%= stylesheet_pack_tag("application") %>
+    <%= javascript_pack_tag("application") %>
+    <%= javascript_pack_tag("venue_display") %>
+  </head>
+
+  <body>
+    <section class="section">
+      <div class="container">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= yield %>
+      </div>
+    </section>
+  </body>
+</html>

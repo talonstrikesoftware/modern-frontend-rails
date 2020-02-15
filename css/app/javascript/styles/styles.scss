@@ -1,0 +1,31 @@
+@import '~bulma';
+
+.background-arrow {
+  background-image: url("../images/arrow.svg");
+  width: 25px;
+  height: 25px;
+  transition: all 0.3s ease-in-out;
+
+  &.is-open {
+    transform: rotate(90deg);
+  }
+
+  &.is-closed {
+    transform: rotate(-90deg);
+  }
+
+  &:hover {
+    background-color: yellow;
+  }
+
+}
+
+.js--day-text {
+  transition: all 1s ease-in-out;
+  max-height: 1000px;
+
+  &.is-closed {
+    opacity: 0;
+    max-height: 0px;
+  }
+}

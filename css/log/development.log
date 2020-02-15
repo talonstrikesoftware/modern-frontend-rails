@@ -1,0 +1,1544 @@
+Started GET "/" for 172.21.0.1 at 2020-01-26 13:13:11 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  
+PG::ConnectionBad (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5432"?
+):
+  
+pg (1.1.4) lib/pg.rb:56:in `initialize'
+pg (1.1.4) lib/pg.rb:56:in `new'
+pg (1.1.4) lib/pg.rb:56:in `connect'
+activerecord (6.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:46:in `postgresql_connection'
+activerecord (6.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:879:in `new_connection'
+activerecord (6.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:923:in `checkout_new_connection'
+activerecord (6.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:902:in `try_to_checkout_new_connection'
+activerecord (6.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:863:in `acquire_connection'
+activerecord (6.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:587:in `checkout'
+activerecord (6.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:431:in `connection'
+activerecord (6.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:1111:in `retrieve_connection'
+activerecord (6.0.0) lib/active_record/connection_handling.rb:231:in `retrieve_connection'
+activerecord (6.0.0) lib/active_record/connection_handling.rb:199:in `connection'
+activerecord (6.0.0) lib/active_record/migration.rb:562:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:19:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (4.1.0) lib/puma/configuration.rb:228:in `call'
+puma (4.1.0) lib/puma/server.rb:664:in `handle_request'
+puma (4.1.0) lib/puma/server.rb:467:in `process_client'
+puma (4.1.0) lib/puma/server.rb:328:in `block in run'
+puma (4.1.0) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for 172.21.0.1 at 2020-01-26 13:15:25 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SchedulesController#show as HTML
+  [1m[36mConcert Load (6.0ms)[0m  [1m[34mSELECT "concerts".* FROM "concerts"[0m
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mVenue Load (2.6ms)[0m  [1m[34mSELECT "venues".* FROM "venues" WHERE "venues"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["id", 6], ["id", 5], ["id", 10], ["id", 9], ["id", 4], ["id", 1], ["id", 8], ["id", 3], ["id", 2]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mGig Load (3.3ms)[0m  [1m[34mSELECT "gigs".* FROM "gigs" WHERE "gigs"."concert_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1], ["concert_id", 2], ["concert_id", 3], ["concert_id", 4], ["concert_id", 5], ["concert_id", 6], ["concert_id", 7], ["concert_id", 8], ["concert_id", 9], ["concert_id", 10], ["concert_id", 11], ["concert_id", 12], ["concert_id", 13], ["concert_id", 14], ["concert_id", 15], ["concert_id", 16], ["concert_id", 17], ["concert_id", 18], ["concert_id", 19], ["concert_id", 20]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mBand Load (2.0ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)[0m  [["id", 9], ["id", 7], ["id", 2], ["id", 17], ["id", 10], ["id", 15], ["id", 1], ["id", 8], ["id", 24], ["id", 3], ["id", 14], ["id", 12], ["id", 16], ["id", 11], ["id", 5], ["id", 18], ["id", 4], ["id", 21], ["id", 26], ["id", 25], ["id", 13]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  Rendering schedules/show.html.erb within layouts/application
+  [1m[36mBand Load (1.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 12]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 16]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 17]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 7]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 14]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 4]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 20]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 3]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 13]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 19]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 8]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 6]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 10]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 9]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 2]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 5]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 11]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 18]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 15]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  Rendered schedules/show.html.erb within layouts/application (Duration: 2176.6ms | Allocations: 788541)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /usr/src/app/public/packs
+Completed 200 OK in 21720ms (Views: 21402.0ms | ActiveRecord: 43.7ms | Allocations: 836115)
+
+
+Started GET "/concerts/12" for 172.21.0.1 at 2020-01-26 13:18:06 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ConcertsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mConcert Load (0.6ms)[0m  [1m[34mSELECT "concerts".* FROM "concerts" WHERE "concerts"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/concerts_controller.rb:83:in `set_concert'
+  Rendering concerts/show.html.erb within layouts/application
+  [1m[36mVenue Load (0.4ms)[0m  [1m[34mSELECT "venues".* FROM "venues" WHERE "venues"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:13
+  [1m[36mGig Load (0.6ms)[0m  [1m[34mSELECT "gigs".* FROM "gigs" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 12]]
+  ↳ app/views/concerts/show.html.erb:26
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:29
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:29
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:29
+  Rendered concerts/_seats.html.erb (Duration: 3.2ms | Allocations: 653)
+  Rendered concerts/show.html.erb within layouts/application (Duration: 36.4ms | Allocations: 5653)
+Completed 200 OK in 162ms (Views: 146.9ms | ActiveRecord: 3.1ms | Allocations: 9694)
+
+
+Started GET "/" for 172.21.0.1 at 2020-01-26 14:08:30 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SchedulesController#show as HTML
+  [1m[36mConcert Load (1.1ms)[0m  [1m[34mSELECT "concerts".* FROM "concerts"[0m
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mVenue Load (1.1ms)[0m  [1m[34mSELECT "venues".* FROM "venues" WHERE "venues"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["id", 6], ["id", 5], ["id", 10], ["id", 9], ["id", 4], ["id", 1], ["id", 8], ["id", 3], ["id", 2]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mGig Load (0.7ms)[0m  [1m[34mSELECT "gigs".* FROM "gigs" WHERE "gigs"."concert_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1], ["concert_id", 2], ["concert_id", 3], ["concert_id", 4], ["concert_id", 5], ["concert_id", 6], ["concert_id", 7], ["concert_id", 8], ["concert_id", 9], ["concert_id", 10], ["concert_id", 11], ["concert_id", 12], ["concert_id", 13], ["concert_id", 14], ["concert_id", 15], ["concert_id", 16], ["concert_id", 17], ["concert_id", 18], ["concert_id", 19], ["concert_id", 20]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)[0m  [["id", 9], ["id", 7], ["id", 2], ["id", 17], ["id", 10], ["id", 15], ["id", 1], ["id", 8], ["id", 24], ["id", 3], ["id", 14], ["id", 12], ["id", 16], ["id", 11], ["id", 5], ["id", 18], ["id", 4], ["id", 21], ["id", 26], ["id", 25], ["id", 13]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  Rendering schedules/show.html.erb within layouts/application
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 12]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 16]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 17]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 7]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 14]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 4]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 20]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 3]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 13]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 19]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 8]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 6]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 10]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 9]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 2]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 5]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 11]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 18]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 15]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  Rendered schedules/show.html.erb within layouts/application (Duration: 597.6ms | Allocations: 203774)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+Completed 200 OK in 50591ms (Views: 50415.3ms | ActiveRecord: 29.6ms | Allocations: 247977)
+
+
+Started GET "/concerts/12" for 172.21.0.1 at 2020-01-26 14:09:35 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ConcertsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mConcert Load (0.4ms)[0m  [1m[34mSELECT "concerts".* FROM "concerts" WHERE "concerts"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/concerts_controller.rb:83:in `set_concert'
+  Rendering concerts/show.html.erb within layouts/application
+  [1m[36mVenue Load (0.5ms)[0m  [1m[34mSELECT "venues".* FROM "venues" WHERE "venues"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:13
+  [1m[36mGig Load (0.5ms)[0m  [1m[34mSELECT "gigs".* FROM "gigs" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 12]]
+  ↳ app/views/concerts/show.html.erb:26
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:29
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:29
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:29
+  Rendered concerts/show.html.erb within layouts/application (Duration: 27.3ms | Allocations: 4761)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+Completed 200 OK in 36767ms (Views: 36755.0ms | ActiveRecord: 3.1ms | Allocations: 11379)
+
+
+Started GET "/" for 172.21.0.1 at 2020-01-26 14:11:35 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SchedulesController#show as HTML
+  [1m[36mConcert Load (0.4ms)[0m  [1m[34mSELECT "concerts".* FROM "concerts"[0m
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mVenue Load (0.8ms)[0m  [1m[34mSELECT "venues".* FROM "venues" WHERE "venues"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["id", 6], ["id", 5], ["id", 10], ["id", 9], ["id", 4], ["id", 1], ["id", 8], ["id", 3], ["id", 2]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mGig Load (0.6ms)[0m  [1m[34mSELECT "gigs".* FROM "gigs" WHERE "gigs"."concert_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1], ["concert_id", 2], ["concert_id", 3], ["concert_id", 4], ["concert_id", 5], ["concert_id", 6], ["concert_id", 7], ["concert_id", 8], ["concert_id", 9], ["concert_id", 10], ["concert_id", 11], ["concert_id", 12], ["concert_id", 13], ["concert_id", 14], ["concert_id", 15], ["concert_id", 16], ["concert_id", 17], ["concert_id", 18], ["concert_id", 19], ["concert_id", 20]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)[0m  [["id", 9], ["id", 7], ["id", 2], ["id", 17], ["id", 10], ["id", 15], ["id", 1], ["id", 8], ["id", 24], ["id", 3], ["id", 14], ["id", 12], ["id", 16], ["id", 11], ["id", 5], ["id", 18], ["id", 4], ["id", 21], ["id", 26], ["id", 25], ["id", 13]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  Rendering schedules/show.html.erb within layouts/application
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 12]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 16]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 17]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 7]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 14]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 4]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 20]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 3]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 13]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 19]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 8]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 6]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 10]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 9]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 2]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 5]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 11]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 18]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 15]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  Rendered schedules/show.html.erb within layouts/application (Duration: 90.3ms | Allocations: 23807)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /usr/src/app/public/packs
+Completed 200 OK in 18330ms (Views: 18298.9ms | ActiveRecord: 10.3ms | Allocations: 36021)
+
+
+Started GET "/concerts/12" for 172.21.0.1 at 2020-01-26 14:11:58 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ConcertsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mConcert Load (0.7ms)[0m  [1m[34mSELECT "concerts".* FROM "concerts" WHERE "concerts"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/concerts_controller.rb:83:in `set_concert'
+  Rendering concerts/show.html.erb within layouts/application
+  [1m[36mVenue Load (0.6ms)[0m  [1m[34mSELECT "venues".* FROM "venues" WHERE "venues"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:13
+  [1m[36mGig Load (0.7ms)[0m  [1m[34mSELECT "gigs".* FROM "gigs" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 12]]
+  ↳ app/views/concerts/show.html.erb:26
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:29
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:29
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:29
+  Rendered concerts/show.html.erb within layouts/application (Duration: 21.6ms | Allocations: 4065)
+Completed 200 OK in 229ms (Views: 221.1ms | ActiveRecord: 3.5ms | Allocations: 9380)
+
+
+Started GET "/" for 172.21.0.1 at 2020-01-26 19:07:10 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SchedulesController#show as HTML
+  [1m[36mConcert Load (1.3ms)[0m  [1m[34mSELECT "concerts".* FROM "concerts"[0m
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mVenue Load (1.8ms)[0m  [1m[34mSELECT "venues".* FROM "venues" WHERE "venues"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["id", 6], ["id", 5], ["id", 10], ["id", 9], ["id", 4], ["id", 1], ["id", 8], ["id", 3], ["id", 2]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mGig Load (1.8ms)[0m  [1m[34mSELECT "gigs".* FROM "gigs" WHERE "gigs"."concert_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1], ["concert_id", 2], ["concert_id", 3], ["concert_id", 4], ["concert_id", 5], ["concert_id", 6], ["concert_id", 7], ["concert_id", 8], ["concert_id", 9], ["concert_id", 10], ["concert_id", 11], ["concert_id", 12], ["concert_id", 13], ["concert_id", 14], ["concert_id", 15], ["concert_id", 16], ["concert_id", 17], ["concert_id", 18], ["concert_id", 19], ["concert_id", 20]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mBand Load (1.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)[0m  [["id", 9], ["id", 7], ["id", 2], ["id", 17], ["id", 10], ["id", 15], ["id", 1], ["id", 8], ["id", 24], ["id", 3], ["id", 14], ["id", 12], ["id", 16], ["id", 11], ["id", 5], ["id", 18], ["id", 4], ["id", 21], ["id", 26], ["id", 25], ["id", 13]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  Rendering schedules/show.html.erb within layouts/application
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 12]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 16]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 17]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 7]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (1.2ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 14]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 4]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 20]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 3]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 13]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 19]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 8]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 6]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 10]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 9]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 2]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 5]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 11]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 18]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 15]]
+  ↳ app/views/schedules/show.html.erb:60:in `map'
+  Rendered schedules/show.html.erb within layouts/application (Duration: 80.3ms | Allocations: 23832)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /usr/src/app/public/packs
+Completed 200 OK in 55448ms (Views: 55401.8ms | ActiveRecord: 20.3ms | Allocations: 36431)
+
+
+Started GET "/concerts/12" for 172.21.0.1 at 2020-01-26 19:08:10 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ConcertsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mConcert Load (1.1ms)[0m  [1m[34mSELECT "concerts".* FROM "concerts" WHERE "concerts"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/concerts_controller.rb:83:in `set_concert'
+  Rendering concerts/show.html.erb within layouts/application
+  [1m[36mVenue Load (0.9ms)[0m  [1m[34mSELECT "venues".* FROM "venues" WHERE "venues"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:13
+  [1m[36mGig Load (0.9ms)[0m  [1m[34mSELECT "gigs".* FROM "gigs" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 12]]
+  ↳ app/views/concerts/show.html.erb:26
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:29
+  [1m[36mBand Load (1.0ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:29
+  [1m[36mBand Load (1.0ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:29
+  Rendered concerts/show.html.erb within layouts/application (Duration: 30.3ms | Allocations: 4078)
+Completed 200 OK in 417ms (Views: 402.6ms | ActiveRecord: 5.6ms | Allocations: 9409)
+
+
+Started GET "/concerts/12" for 172.21.0.1 at 2020-01-26 19:08:48 +0000
+Cannot render console from 172.21.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ConcertsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mConcert Load (1.0ms)[0m  [1m[34mSELECT "concerts".* FROM "concerts" WHERE "concerts"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/concerts_controller.rb:83:in `set_concert'
+  Rendering concerts/show.html.erb within layouts/application
+  [1m[36mVenue Load (0.9ms)[0m  [1m[34mSELECT "venues".* FROM "venues" WHERE "venues"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:13
+  [1m[36mGig Load (1.0ms)[0m  [1m[34mSELECT "gigs".* FROM "gigs" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 12]]
+  ↳ app/views/concerts/show.html.erb:26
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:29
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:29
+  [1m[36mBand Load (1.1ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:29
+  Rendered concerts/show.html.erb within layouts/application (Duration: 24.8ms | Allocations: 4066)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /usr/src/app/public/packs
+Completed 200 OK in 23024ms (Views: 23012.3ms | ActiveRecord: 5.5ms | Allocations: 10684)
+
+
+Started GET "/" for 172.19.0.1 at 2020-02-02 13:42:41 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SchedulesController#show as HTML
+  [1m[36mConcert Load (8.1ms)[0m  [1m[34mSELECT "concerts".* FROM "concerts"[0m
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mVenue Load (1.8ms)[0m  [1m[34mSELECT "venues".* FROM "venues" WHERE "venues"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["id", 6], ["id", 5], ["id", 10], ["id", 9], ["id", 4], ["id", 1], ["id", 8], ["id", 3], ["id", 2]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mGig Load (2.7ms)[0m  [1m[34mSELECT "gigs".* FROM "gigs" WHERE "gigs"."concert_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1], ["concert_id", 2], ["concert_id", 3], ["concert_id", 4], ["concert_id", 5], ["concert_id", 6], ["concert_id", 7], ["concert_id", 8], ["concert_id", 9], ["concert_id", 10], ["concert_id", 11], ["concert_id", 12], ["concert_id", 13], ["concert_id", 14], ["concert_id", 15], ["concert_id", 16], ["concert_id", 17], ["concert_id", 18], ["concert_id", 19], ["concert_id", 20]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mBand Load (2.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)[0m  [["id", 9], ["id", 7], ["id", 2], ["id", 17], ["id", 10], ["id", 15], ["id", 1], ["id", 8], ["id", 24], ["id", 3], ["id", 14], ["id", 12], ["id", 16], ["id", 11], ["id", 5], ["id", 18], ["id", 4], ["id", 21], ["id", 26], ["id", 25], ["id", 13]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  Rendering schedules/show.html.erb within layouts/application
+  [1m[36mBand Load (1.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 12]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 16]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 17]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 7]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 14]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 4]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 20]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 3]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 13]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 19]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 8]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 6]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 10]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 9]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 2]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 5]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 11]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+Started GET "/" for 172.19.0.1 at 2020-02-02 13:42:44 +0000
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 18]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 15]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  Rendered schedules/show.html.erb within layouts/application (Duration: 2756.2ms | Allocations: 790129)
+Processing by SchedulesController#show as HTML
+  [1m[36mConcert Load (1.2ms)[0m  [1m[34mSELECT "concerts".* FROM "concerts"[0m
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mVenue Load (1.1ms)[0m  [1m[34mSELECT "venues".* FROM "venues" WHERE "venues"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["id", 6], ["id", 5], ["id", 10], ["id", 9], ["id", 4], ["id", 1], ["id", 8], ["id", 3], ["id", 2]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mGig Load (1.5ms)[0m  [1m[34mSELECT "gigs".* FROM "gigs" WHERE "gigs"."concert_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1], ["concert_id", 2], ["concert_id", 3], ["concert_id", 4], ["concert_id", 5], ["concert_id", 6], ["concert_id", 7], ["concert_id", 8], ["concert_id", 9], ["concert_id", 10], ["concert_id", 11], ["concert_id", 12], ["concert_id", 13], ["concert_id", 14], ["concert_id", 15], ["concert_id", 16], ["concert_id", 17], ["concert_id", 18], ["concert_id", 19], ["concert_id", 20]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mBand Load (1.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)[0m  [["id", 9], ["id", 7], ["id", 2], ["id", 17], ["id", 10], ["id", 15], ["id", 1], ["id", 8], ["id", 24], ["id", 3], ["id", 14], ["id", 12], ["id", 16], ["id", 11], ["id", 5], ["id", 18], ["id", 4], ["id", 21], ["id", 26], ["id", 25], ["id", 13]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  Rendering schedules/show.html.erb within layouts/application
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 12]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (1.2ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 16]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 17]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (1.3ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 7]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (1.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 14]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (1.0ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (1.0ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 4]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 20]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 3]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 13]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 19]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (1.2ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 8]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 6]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 10]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (1.1ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 9]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 2]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (1.0ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 5]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (1.1ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 11]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 18]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 15]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  Rendered schedules/show.html.erb within layouts/application (Duration: 139.7ms | Allocations: 24012)
+[Webpacker] Compiling…
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+[Webpacker] Compilation failed:
+
+[Webpacker] Compiling…
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+Completed 500 Internal Server Error in 49096ms (ActiveRecord: 42.6ms | Allocations: 878884)
+
+
+  
+ActionView::Template::Error (767: unexpected token at ''):
+     9:     <script defer="true"
+    10:             src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
+    11:     <%= javascript_pack_tag("application") %>
+    12:     <%= javascript_pack_tag("venue_display") %>
+    13:   </head>
+    14: 
+    15:   <body>
+  
+app/views/layouts/application.html.erb:12
+[Webpacker] Compilation failed:
+
+Completed 200 OK in 46334ms (Views: 46289.0ms | ActiveRecord: 24.8ms | Allocations: 359496)
+
+
+Started GET "/" for 172.19.0.1 at 2020-02-02 13:45:25 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SchedulesController#show as HTML
+  [1m[36mConcert Load (1.2ms)[0m  [1m[34mSELECT "concerts".* FROM "concerts"[0m
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mVenue Load (0.7ms)[0m  [1m[34mSELECT "venues".* FROM "venues" WHERE "venues"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["id", 6], ["id", 5], ["id", 10], ["id", 9], ["id", 4], ["id", 1], ["id", 8], ["id", 3], ["id", 2]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mGig Load (1.1ms)[0m  [1m[34mSELECT "gigs".* FROM "gigs" WHERE "gigs"."concert_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1], ["concert_id", 2], ["concert_id", 3], ["concert_id", 4], ["concert_id", 5], ["concert_id", 6], ["concert_id", 7], ["concert_id", 8], ["concert_id", 9], ["concert_id", 10], ["concert_id", 11], ["concert_id", 12], ["concert_id", 13], ["concert_id", 14], ["concert_id", 15], ["concert_id", 16], ["concert_id", 17], ["concert_id", 18], ["concert_id", 19], ["concert_id", 20]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)[0m  [["id", 9], ["id", 7], ["id", 2], ["id", 17], ["id", 10], ["id", 15], ["id", 1], ["id", 8], ["id", 24], ["id", 3], ["id", 14], ["id", 12], ["id", 16], ["id", 11], ["id", 5], ["id", 18], ["id", 4], ["id", 21], ["id", 26], ["id", 25], ["id", 13]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  Rendering schedules/show.html.erb within layouts/application
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 12]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 16]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 17]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 7]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 14]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 4]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 20]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 3]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 13]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 19]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 8]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 6]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 10]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 9]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 2]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 5]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 11]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 18]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 15]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  Rendered schedules/show.html.erb within layouts/application (Duration: 81.0ms | Allocations: 24270)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+Completed 200 OK in 36967ms (Views: 36924.3ms | ActiveRecord: 14.5ms | Allocations: 36749)
+
+
+Started GET "/" for 172.19.0.1 at 2020-02-02 13:46:35 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SchedulesController#show as HTML
+  [1m[36mConcert Load (0.6ms)[0m  [1m[34mSELECT "concerts".* FROM "concerts"[0m
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mVenue Load (0.9ms)[0m  [1m[34mSELECT "venues".* FROM "venues" WHERE "venues"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["id", 6], ["id", 5], ["id", 10], ["id", 9], ["id", 4], ["id", 1], ["id", 8], ["id", 3], ["id", 2]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mGig Load (0.8ms)[0m  [1m[34mSELECT "gigs".* FROM "gigs" WHERE "gigs"."concert_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1], ["concert_id", 2], ["concert_id", 3], ["concert_id", 4], ["concert_id", 5], ["concert_id", 6], ["concert_id", 7], ["concert_id", 8], ["concert_id", 9], ["concert_id", 10], ["concert_id", 11], ["concert_id", 12], ["concert_id", 13], ["concert_id", 14], ["concert_id", 15], ["concert_id", 16], ["concert_id", 17], ["concert_id", 18], ["concert_id", 19], ["concert_id", 20]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mBand Load (1.1ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)[0m  [["id", 9], ["id", 7], ["id", 2], ["id", 17], ["id", 10], ["id", 15], ["id", 1], ["id", 8], ["id", 24], ["id", 3], ["id", 14], ["id", 12], ["id", 16], ["id", 11], ["id", 5], ["id", 18], ["id", 4], ["id", 21], ["id", 26], ["id", 25], ["id", 13]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  Rendering schedules/show.html.erb within layouts/application
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 12]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 16]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 17]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 7]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 14]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 4]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 20]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 3]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 13]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 19]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 8]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 6]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 10]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 9]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 2]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 5]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 11]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 18]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 15]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  Rendered schedules/show.html.erb within layouts/application (Duration: 89.5ms | Allocations: 23806)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+Completed 200 OK in 36414ms (Views: 36377.1ms | ActiveRecord: 14.5ms | Allocations: 35239)
+
+
+Started GET "/" for 172.19.0.1 at 2020-02-02 13:48:08 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SchedulesController#show as HTML
+  [1m[36mConcert Load (0.7ms)[0m  [1m[34mSELECT "concerts".* FROM "concerts"[0m
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mVenue Load (0.8ms)[0m  [1m[34mSELECT "venues".* FROM "venues" WHERE "venues"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["id", 6], ["id", 5], ["id", 10], ["id", 9], ["id", 4], ["id", 1], ["id", 8], ["id", 3], ["id", 2]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mGig Load (1.2ms)[0m  [1m[34mSELECT "gigs".* FROM "gigs" WHERE "gigs"."concert_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1], ["concert_id", 2], ["concert_id", 3], ["concert_id", 4], ["concert_id", 5], ["concert_id", 6], ["concert_id", 7], ["concert_id", 8], ["concert_id", 9], ["concert_id", 10], ["concert_id", 11], ["concert_id", 12], ["concert_id", 13], ["concert_id", 14], ["concert_id", 15], ["concert_id", 16], ["concert_id", 17], ["concert_id", 18], ["concert_id", 19], ["concert_id", 20]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)[0m  [["id", 9], ["id", 7], ["id", 2], ["id", 17], ["id", 10], ["id", 15], ["id", 1], ["id", 8], ["id", 24], ["id", 3], ["id", 14], ["id", 12], ["id", 16], ["id", 11], ["id", 5], ["id", 18], ["id", 4], ["id", 21], ["id", 26], ["id", 25], ["id", 13]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  Rendering schedules/show.html.erb within layouts/application
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 12]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 16]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 17]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 7]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 14]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 4]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 20]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 3]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 13]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 19]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 8]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 6]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 10]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 9]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 2]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 5]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 11]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 18]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 15]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  Rendered schedules/show.html.erb within layouts/application (Duration: 94.1ms | Allocations: 24270)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+Completed 200 OK in 37907ms (Views: 37864.0ms | ActiveRecord: 14.8ms | Allocations: 36781)
+
+
+Started GET "/" for 172.19.0.1 at 2020-02-02 13:53:21 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SchedulesController#show as HTML
+  [1m[36mConcert Load (0.9ms)[0m  [1m[34mSELECT "concerts".* FROM "concerts"[0m
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mVenue Load (0.7ms)[0m  [1m[34mSELECT "venues".* FROM "venues" WHERE "venues"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["id", 6], ["id", 5], ["id", 10], ["id", 9], ["id", 4], ["id", 1], ["id", 8], ["id", 3], ["id", 2]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mGig Load (1.0ms)[0m  [1m[34mSELECT "gigs".* FROM "gigs" WHERE "gigs"."concert_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1], ["concert_id", 2], ["concert_id", 3], ["concert_id", 4], ["concert_id", 5], ["concert_id", 6], ["concert_id", 7], ["concert_id", 8], ["concert_id", 9], ["concert_id", 10], ["concert_id", 11], ["concert_id", 12], ["concert_id", 13], ["concert_id", 14], ["concert_id", 15], ["concert_id", 16], ["concert_id", 17], ["concert_id", 18], ["concert_id", 19], ["concert_id", 20]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)[0m  [["id", 9], ["id", 7], ["id", 2], ["id", 17], ["id", 10], ["id", 15], ["id", 1], ["id", 8], ["id", 24], ["id", 3], ["id", 14], ["id", 12], ["id", 16], ["id", 11], ["id", 5], ["id", 18], ["id", 4], ["id", 21], ["id", 26], ["id", 25], ["id", 13]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  Rendering schedules/show.html.erb within layouts/application
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 12]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 16]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 17]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 7]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 14]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (1.1ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 4]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 20]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 3]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 13]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 19]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 8]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 6]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 10]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 9]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 2]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 5]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 11]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 18]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 15]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  Rendered schedules/show.html.erb within layouts/application (Duration: 87.4ms | Allocations: 23806)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+Completed 200 OK in 58061ms (Views: 58023.2ms | ActiveRecord: 14.8ms | Allocations: 35313)
+
+
+Started GET "/" for 172.19.0.1 at 2020-02-02 13:55:55 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SchedulesController#show as HTML
+  [1m[36mConcert Load (0.9ms)[0m  [1m[34mSELECT "concerts".* FROM "concerts"[0m
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mVenue Load (0.5ms)[0m  [1m[34mSELECT "venues".* FROM "venues" WHERE "venues"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["id", 6], ["id", 5], ["id", 10], ["id", 9], ["id", 4], ["id", 1], ["id", 8], ["id", 3], ["id", 2]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mGig Load (1.1ms)[0m  [1m[34mSELECT "gigs".* FROM "gigs" WHERE "gigs"."concert_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1], ["concert_id", 2], ["concert_id", 3], ["concert_id", 4], ["concert_id", 5], ["concert_id", 6], ["concert_id", 7], ["concert_id", 8], ["concert_id", 9], ["concert_id", 10], ["concert_id", 11], ["concert_id", 12], ["concert_id", 13], ["concert_id", 14], ["concert_id", 15], ["concert_id", 16], ["concert_id", 17], ["concert_id", 18], ["concert_id", 19], ["concert_id", 20]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)[0m  [["id", 9], ["id", 7], ["id", 2], ["id", 17], ["id", 10], ["id", 15], ["id", 1], ["id", 8], ["id", 24], ["id", 3], ["id", 14], ["id", 12], ["id", 16], ["id", 11], ["id", 5], ["id", 18], ["id", 4], ["id", 21], ["id", 26], ["id", 25], ["id", 13]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  Rendering schedules/show.html.erb within layouts/application
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 12]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 16]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 17]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 7]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 14]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 4]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 20]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 3]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 13]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 19]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 8]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 6]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 10]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 9]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 2]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 5]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 11]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 18]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 15]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  Rendered schedules/show.html.erb within layouts/application (Duration: 92.3ms | Allocations: 23801)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /usr/src/app/public/packs
+Completed 200 OK in 27939ms (Views: 27902.2ms | ActiveRecord: 14.3ms | Allocations: 36187)
+
+
+Started GET "/" for 172.19.0.1 at 2020-02-02 13:56:33 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SchedulesController#show as HTML
+  [1m[36mConcert Load (0.9ms)[0m  [1m[34mSELECT "concerts".* FROM "concerts"[0m
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mVenue Load (0.6ms)[0m  [1m[34mSELECT "venues".* FROM "venues" WHERE "venues"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["id", 6], ["id", 5], ["id", 10], ["id", 9], ["id", 4], ["id", 1], ["id", 8], ["id", 3], ["id", 2]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mGig Load (1.1ms)[0m  [1m[34mSELECT "gigs".* FROM "gigs" WHERE "gigs"."concert_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1], ["concert_id", 2], ["concert_id", 3], ["concert_id", 4], ["concert_id", 5], ["concert_id", 6], ["concert_id", 7], ["concert_id", 8], ["concert_id", 9], ["concert_id", 10], ["concert_id", 11], ["concert_id", 12], ["concert_id", 13], ["concert_id", 14], ["concert_id", 15], ["concert_id", 16], ["concert_id", 17], ["concert_id", 18], ["concert_id", 19], ["concert_id", 20]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)[0m  [["id", 9], ["id", 7], ["id", 2], ["id", 17], ["id", 10], ["id", 15], ["id", 1], ["id", 8], ["id", 24], ["id", 3], ["id", 14], ["id", 12], ["id", 16], ["id", 11], ["id", 5], ["id", 18], ["id", 4], ["id", 21], ["id", 26], ["id", 25], ["id", 13]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  Rendering schedules/show.html.erb within layouts/application
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 12]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 16]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 17]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 7]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 14]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 4]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 20]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 3]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 13]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 19]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 8]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 6]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 10]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 9]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 2]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 5]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (2.0ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 11]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 18]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 15]]
+  ↳ app/views/schedules/show.html.erb:59:in `map'
+  Rendered schedules/show.html.erb within layouts/application (Duration: 108.9ms | Allocations: 23800)
+Completed 200 OK in 363ms (Views: 321.7ms | ActiveRecord: 17.6ms | Allocations: 34831)
+
+
+Started GET "/" for 172.19.0.1 at 2020-02-02 14:06:57 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SchedulesController#show as HTML
+  [1m[36mConcert Load (0.9ms)[0m  [1m[34mSELECT "concerts".* FROM "concerts"[0m
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mVenue Load (1.1ms)[0m  [1m[34mSELECT "venues".* FROM "venues" WHERE "venues"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["id", 6], ["id", 5], ["id", 10], ["id", 9], ["id", 4], ["id", 1], ["id", 8], ["id", 3], ["id", 2]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mGig Load (1.0ms)[0m  [1m[34mSELECT "gigs".* FROM "gigs" WHERE "gigs"."concert_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1], ["concert_id", 2], ["concert_id", 3], ["concert_id", 4], ["concert_id", 5], ["concert_id", 6], ["concert_id", 7], ["concert_id", 8], ["concert_id", 9], ["concert_id", 10], ["concert_id", 11], ["concert_id", 12], ["concert_id", 13], ["concert_id", 14], ["concert_id", 15], ["concert_id", 16], ["concert_id", 17], ["concert_id", 18], ["concert_id", 19], ["concert_id", 20]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mBand Load (1.0ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)[0m  [["id", 9], ["id", 7], ["id", 2], ["id", 17], ["id", 10], ["id", 15], ["id", 1], ["id", 8], ["id", 24], ["id", 3], ["id", 14], ["id", 12], ["id", 16], ["id", 11], ["id", 5], ["id", 18], ["id", 4], ["id", 21], ["id", 26], ["id", 25], ["id", 13]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  Rendering schedules/show.html.erb within layouts/application
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 12]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 16]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (1.0ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 17]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 7]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 14]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 4]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 20]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 3]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 13]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 19]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 8]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 6]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 10]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 9]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 2]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 5]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 11]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 18]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 15]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  Rendered schedules/show.html.erb within layouts/application (Duration: 93.8ms | Allocations: 24309)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /usr/src/app/public/packs
+Completed 200 OK in 27620ms (Views: 27577.6ms | ActiveRecord: 17.2ms | Allocations: 37864)
+
+
+Started GET "/" for 172.19.0.1 at 2020-02-02 20:34:41 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SchedulesController#show as HTML
+  [1m[36mConcert Load (1.0ms)[0m  [1m[34mSELECT "concerts".* FROM "concerts"[0m
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mVenue Load (0.8ms)[0m  [1m[34mSELECT "venues".* FROM "venues" WHERE "venues"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["id", 6], ["id", 5], ["id", 10], ["id", 9], ["id", 4], ["id", 1], ["id", 8], ["id", 3], ["id", 2]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mGig Load (0.7ms)[0m  [1m[34mSELECT "gigs".* FROM "gigs" WHERE "gigs"."concert_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1], ["concert_id", 2], ["concert_id", 3], ["concert_id", 4], ["concert_id", 5], ["concert_id", 6], ["concert_id", 7], ["concert_id", 8], ["concert_id", 9], ["concert_id", 10], ["concert_id", 11], ["concert_id", 12], ["concert_id", 13], ["concert_id", 14], ["concert_id", 15], ["concert_id", 16], ["concert_id", 17], ["concert_id", 18], ["concert_id", 19], ["concert_id", 20]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mBand Load (1.0ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)[0m  [["id", 9], ["id", 7], ["id", 2], ["id", 17], ["id", 10], ["id", 15], ["id", 1], ["id", 8], ["id", 24], ["id", 3], ["id", 14], ["id", 12], ["id", 16], ["id", 11], ["id", 5], ["id", 18], ["id", 4], ["id", 21], ["id", 26], ["id", 25], ["id", 13]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  Rendering schedules/show.html.erb within layouts/application
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 12]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 16]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 17]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 7]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 14]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (1.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 4]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 20]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 3]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 13]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 19]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 8]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 6]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 10]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 9]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 2]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 5]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 11]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 18]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 15]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  Rendered schedules/show.html.erb within layouts/application (Duration: 847.7ms | Allocations: 204236)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /usr/src/app/public/packs
+Completed 200 OK in 58664ms (Views: 58463.8ms | ActiveRecord: 34.2ms | Allocations: 249239)
+
+
+Started GET "/" for 172.19.0.1 at 2020-02-02 20:41:12 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SchedulesController#show as HTML
+  [1m[36mConcert Load (1.1ms)[0m  [1m[34mSELECT "concerts".* FROM "concerts"[0m
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mVenue Load (1.4ms)[0m  [1m[34mSELECT "venues".* FROM "venues" WHERE "venues"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["id", 6], ["id", 5], ["id", 10], ["id", 9], ["id", 4], ["id", 1], ["id", 8], ["id", 3], ["id", 2]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mGig Load (1.4ms)[0m  [1m[34mSELECT "gigs".* FROM "gigs" WHERE "gigs"."concert_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1], ["concert_id", 2], ["concert_id", 3], ["concert_id", 4], ["concert_id", 5], ["concert_id", 6], ["concert_id", 7], ["concert_id", 8], ["concert_id", 9], ["concert_id", 10], ["concert_id", 11], ["concert_id", 12], ["concert_id", 13], ["concert_id", 14], ["concert_id", 15], ["concert_id", 16], ["concert_id", 17], ["concert_id", 18], ["concert_id", 19], ["concert_id", 20]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mBand Load (1.0ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)[0m  [["id", 9], ["id", 7], ["id", 2], ["id", 17], ["id", 10], ["id", 15], ["id", 1], ["id", 8], ["id", 24], ["id", 3], ["id", 14], ["id", 12], ["id", 16], ["id", 11], ["id", 5], ["id", 18], ["id", 4], ["id", 21], ["id", 26], ["id", 25], ["id", 13]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  Rendering schedules/show.html.erb within layouts/application
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 12]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 16]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 17]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 7]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 14]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 4]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 20]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 3]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 13]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 19]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 8]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 6]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (1.0ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 10]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 9]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 2]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 5]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 11]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 18]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (1.2ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 15]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  Rendered schedules/show.html.erb within layouts/application (Duration: 104.3ms | Allocations: 23807)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /usr/src/app/public/packs
+Completed 200 OK in 32178ms (Views: 32132.3ms | ActiveRecord: 20.4ms | Allocations: 36260)
+
+
+Started GET "/" for 172.19.0.1 at 2020-02-02 20:42:26 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SchedulesController#show as HTML
+  [1m[36mConcert Load (1.3ms)[0m  [1m[34mSELECT "concerts".* FROM "concerts"[0m
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mVenue Load (1.2ms)[0m  [1m[34mSELECT "venues".* FROM "venues" WHERE "venues"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["id", 6], ["id", 5], ["id", 10], ["id", 9], ["id", 4], ["id", 1], ["id", 8], ["id", 3], ["id", 2]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mGig Load (0.9ms)[0m  [1m[34mSELECT "gigs".* FROM "gigs" WHERE "gigs"."concert_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1], ["concert_id", 2], ["concert_id", 3], ["concert_id", 4], ["concert_id", 5], ["concert_id", 6], ["concert_id", 7], ["concert_id", 8], ["concert_id", 9], ["concert_id", 10], ["concert_id", 11], ["concert_id", 12], ["concert_id", 13], ["concert_id", 14], ["concert_id", 15], ["concert_id", 16], ["concert_id", 17], ["concert_id", 18], ["concert_id", 19], ["concert_id", 20]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mBand Load (1.3ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)[0m  [["id", 9], ["id", 7], ["id", 2], ["id", 17], ["id", 10], ["id", 15], ["id", 1], ["id", 8], ["id", 24], ["id", 3], ["id", 14], ["id", 12], ["id", 16], ["id", 11], ["id", 5], ["id", 18], ["id", 4], ["id", 21], ["id", 26], ["id", 25], ["id", 13]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  Rendering schedules/show.html.erb within layouts/application
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 12]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 16]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 17]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 7]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 14]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 4]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 20]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 3]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 13]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 19]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 8]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 6]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 10]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 9]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 2]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 5]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 11]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 18]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 15]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  Rendered schedules/show.html.erb within layouts/application (Duration: 87.7ms | Allocations: 23800)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /usr/src/app/public/packs
+Completed 200 OK in 32034ms (Views: 31988.0ms | ActiveRecord: 18.1ms | Allocations: 36183)
+
+
+Started GET "/" for 172.19.0.1 at 2020-02-02 20:43:04 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SchedulesController#show as HTML
+  [1m[36mConcert Load (0.9ms)[0m  [1m[34mSELECT "concerts".* FROM "concerts"[0m
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mVenue Load (0.9ms)[0m  [1m[34mSELECT "venues".* FROM "venues" WHERE "venues"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["id", 6], ["id", 5], ["id", 10], ["id", 9], ["id", 4], ["id", 1], ["id", 8], ["id", 3], ["id", 2]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mGig Load (1.4ms)[0m  [1m[34mSELECT "gigs".* FROM "gigs" WHERE "gigs"."concert_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1], ["concert_id", 2], ["concert_id", 3], ["concert_id", 4], ["concert_id", 5], ["concert_id", 6], ["concert_id", 7], ["concert_id", 8], ["concert_id", 9], ["concert_id", 10], ["concert_id", 11], ["concert_id", 12], ["concert_id", 13], ["concert_id", 14], ["concert_id", 15], ["concert_id", 16], ["concert_id", 17], ["concert_id", 18], ["concert_id", 19], ["concert_id", 20]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)[0m  [["id", 9], ["id", 7], ["id", 2], ["id", 17], ["id", 10], ["id", 15], ["id", 1], ["id", 8], ["id", 24], ["id", 3], ["id", 14], ["id", 12], ["id", 16], ["id", 11], ["id", 5], ["id", 18], ["id", 4], ["id", 21], ["id", 26], ["id", 25], ["id", 13]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  Rendering schedules/show.html.erb within layouts/application
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 12]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (1.0ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 16]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 17]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 7]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 14]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 4]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 20]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (1.1ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 3]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 13]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 19]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 8]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 6]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 10]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 9]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 2]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (1.0ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 5]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 11]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 18]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 15]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  Rendered schedules/show.html.erb within layouts/application (Duration: 144.7ms | Allocations: 23803)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /usr/src/app/public/packs
+Completed 200 OK in 29736ms (Views: 29687.1ms | ActiveRecord: 20.6ms | Allocations: 36178)
+
+
+Started GET "/" for 172.19.0.1 at 2020-02-02 20:45:00 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SchedulesController#show as HTML
+  [1m[36mConcert Load (1.4ms)[0m  [1m[34mSELECT "concerts".* FROM "concerts"[0m
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mVenue Load (2.1ms)[0m  [1m[34mSELECT "venues".* FROM "venues" WHERE "venues"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["id", 6], ["id", 5], ["id", 10], ["id", 9], ["id", 4], ["id", 1], ["id", 8], ["id", 3], ["id", 2]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mGig Load (1.5ms)[0m  [1m[34mSELECT "gigs".* FROM "gigs" WHERE "gigs"."concert_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1], ["concert_id", 2], ["concert_id", 3], ["concert_id", 4], ["concert_id", 5], ["concert_id", 6], ["concert_id", 7], ["concert_id", 8], ["concert_id", 9], ["concert_id", 10], ["concert_id", 11], ["concert_id", 12], ["concert_id", 13], ["concert_id", 14], ["concert_id", 15], ["concert_id", 16], ["concert_id", 17], ["concert_id", 18], ["concert_id", 19], ["concert_id", 20]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)[0m  [["id", 9], ["id", 7], ["id", 2], ["id", 17], ["id", 10], ["id", 15], ["id", 1], ["id", 8], ["id", 24], ["id", 3], ["id", 14], ["id", 12], ["id", 16], ["id", 11], ["id", 5], ["id", 18], ["id", 4], ["id", 21], ["id", 26], ["id", 25], ["id", 13]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  Rendering schedules/show.html.erb within layouts/application
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 12]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 16]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (1.1ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 17]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 7]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 14]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 4]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 20]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 3]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 13]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 19]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 8]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 6]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 10]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 9]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 2]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 5]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 11]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 18]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 15]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  Rendered schedules/show.html.erb within layouts/application (Duration: 108.0ms | Allocations: 23801)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /usr/src/app/public/packs
+Completed 200 OK in 30892ms (Views: 30836.6ms | ActiveRecord: 22.0ms | Allocations: 36196)
+
+
+Started GET "/" for 172.19.0.1 at 2020-02-02 20:46:09 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SchedulesController#show as HTML
+  [1m[36mConcert Load (1.3ms)[0m  [1m[34mSELECT "concerts".* FROM "concerts"[0m
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mVenue Load (1.0ms)[0m  [1m[34mSELECT "venues".* FROM "venues" WHERE "venues"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["id", 6], ["id", 5], ["id", 10], ["id", 9], ["id", 4], ["id", 1], ["id", 8], ["id", 3], ["id", 2]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mGig Load (1.1ms)[0m  [1m[34mSELECT "gigs".* FROM "gigs" WHERE "gigs"."concert_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1], ["concert_id", 2], ["concert_id", 3], ["concert_id", 4], ["concert_id", 5], ["concert_id", 6], ["concert_id", 7], ["concert_id", 8], ["concert_id", 9], ["concert_id", 10], ["concert_id", 11], ["concert_id", 12], ["concert_id", 13], ["concert_id", 14], ["concert_id", 15], ["concert_id", 16], ["concert_id", 17], ["concert_id", 18], ["concert_id", 19], ["concert_id", 20]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mBand Load (1.1ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)[0m  [["id", 9], ["id", 7], ["id", 2], ["id", 17], ["id", 10], ["id", 15], ["id", 1], ["id", 8], ["id", 24], ["id", 3], ["id", 14], ["id", 12], ["id", 16], ["id", 11], ["id", 5], ["id", 18], ["id", 4], ["id", 21], ["id", 26], ["id", 25], ["id", 13]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  Rendering schedules/show.html.erb within layouts/application
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 12]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 16]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 17]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 7]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 14]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 4]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 20]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 3]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 13]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 19]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 8]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (1.1ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 6]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 10]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 9]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 2]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 5]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 11]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 18]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 15]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  Rendered schedules/show.html.erb within layouts/application (Duration: 113.9ms | Allocations: 23800)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /usr/src/app/public/packs
+Completed 200 OK in 27517ms (Views: 27460.7ms | ActiveRecord: 20.5ms | Allocations: 36164)
+
+
+Started GET "/" for 172.19.0.1 at 2020-02-02 21:15:21 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SchedulesController#show as HTML
+  [1m[36mConcert Load (1.2ms)[0m  [1m[34mSELECT "concerts".* FROM "concerts"[0m
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mVenue Load (1.7ms)[0m  [1m[34mSELECT "venues".* FROM "venues" WHERE "venues"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9)[0m  [["id", 6], ["id", 5], ["id", 10], ["id", 9], ["id", 4], ["id", 1], ["id", 8], ["id", 3], ["id", 2]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mGig Load (1.3ms)[0m  [1m[34mSELECT "gigs".* FROM "gigs" WHERE "gigs"."concert_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1], ["concert_id", 2], ["concert_id", 3], ["concert_id", 4], ["concert_id", 5], ["concert_id", 6], ["concert_id", 7], ["concert_id", 8], ["concert_id", 9], ["concert_id", 10], ["concert_id", 11], ["concert_id", 12], ["concert_id", 13], ["concert_id", 14], ["concert_id", 15], ["concert_id", 16], ["concert_id", 17], ["concert_id", 18], ["concert_id", 19], ["concert_id", 20]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  [1m[36mBand Load (1.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)[0m  [["id", 9], ["id", 7], ["id", 2], ["id", 17], ["id", 10], ["id", 15], ["id", 1], ["id", 8], ["id", 24], ["id", 3], ["id", 14], ["id", 12], ["id", 16], ["id", 11], ["id", 5], ["id", 18], ["id", 4], ["id", 21], ["id", 26], ["id", 25], ["id", 13]]
+  ↳ app/models/schedule.rb:14:in `group_by'
+  Rendering schedules/show.html.erb within layouts/application
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 12]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (1.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 16]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (1.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 17]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (1.3ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 7]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 14]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 1]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 4]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 20]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 3]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 13]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 19]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 8]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 6]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 10]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 9]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 2]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 5]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 11]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 18]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands" INNER JOIN "gigs" ON "bands"."id" = "gigs"."band_id" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 15]]
+  ↳ app/views/schedules/show.html.erb:62:in `map'
+  Rendered schedules/show.html.erb within layouts/application (Duration: 954.9ms | Allocations: 203963)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+Completed 200 OK in 91983ms (Views: 91686.6ms | ActiveRecord: 50.1ms | Allocations: 248328)
+
+
+Started GET "/concerts/12" for 172.19.0.1 at 2020-02-02 21:17:07 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ConcertsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mConcert Load (0.7ms)[0m  [1m[34mSELECT "concerts".* FROM "concerts" WHERE "concerts"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/concerts_controller.rb:83:in `set_concert'
+  Rendering concerts/show.html.erb within layouts/application
+  [1m[36mVenue Load (0.7ms)[0m  [1m[34mSELECT "venues".* FROM "venues" WHERE "venues"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:13
+  [1m[36mGig Load (0.9ms)[0m  [1m[34mSELECT "gigs".* FROM "gigs" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 12]]
+  ↳ app/views/concerts/show.html.erb:26
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:29
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:29
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:29
+  Rendered concerts/show.html.erb within layouts/application (Duration: 33.2ms | Allocations: 4761)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+[Webpacker] Compiling…
+Started GET "/concerts/12" for 172.19.0.1 at 2020-02-02 21:18:07 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ConcertsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mConcert Load (1.1ms)[0m  [1m[34mSELECT "concerts".* FROM "concerts" WHERE "concerts"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/concerts_controller.rb:83:in `set_concert'
+  Rendering concerts/show.html.erb within layouts/application
+  [1m[36mVenue Load (2.0ms)[0m  [1m[34mSELECT "venues".* FROM "venues" WHERE "venues"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:13
+  [1m[36mGig Load (1.9ms)[0m  [1m[34mSELECT "gigs".* FROM "gigs" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 12]]
+  ↳ app/views/concerts/show.html.erb:26
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:29
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:29
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:29
+  Rendered concerts/show.html.erb within layouts/application (Duration: 45.3ms | Allocations: 4093)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+Completed 200 OK in 105889ms (Views: 105873.5ms | ActiveRecord: 4.5ms | Allocations: 23110)
+
+
+[Webpacker] Compilation failed:
+
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+Completed 200 OK in 107331ms (Views: 107306.6ms | ActiveRecord: 8.1ms | Allocations: 11422)
+
+
+Started GET "/concerts/12" for 172.19.0.1 at 2020-02-02 21:20:41 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ConcertsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mConcert Load (0.8ms)[0m  [1m[34mSELECT "concerts".* FROM "concerts" WHERE "concerts"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/concerts_controller.rb:83:in `set_concert'
+  Rendering concerts/show.html.erb within layouts/application
+  [1m[36mVenue Load (1.3ms)[0m  [1m[34mSELECT "venues".* FROM "venues" WHERE "venues"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:13
+  [1m[36mGig Load (0.8ms)[0m  [1m[34mSELECT "gigs".* FROM "gigs" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 12]]
+  ↳ app/views/concerts/show.html.erb:26
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:29
+  [1m[36mBand Load (1.1ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:29
+  [1m[36mBand Load (1.3ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:29
+  Rendered concerts/show.html.erb within layouts/application (Duration: 35.0ms | Allocations: 4069)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+Completed 200 OK in 81569ms (Views: 81558.3ms | ActiveRecord: 6.3ms | Allocations: 10145)
+
+
+Started GET "/concerts/12" for 172.19.0.1 at 2020-02-02 21:22:36 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ConcertsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mConcert Load (0.8ms)[0m  [1m[34mSELECT "concerts".* FROM "concerts" WHERE "concerts"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/concerts_controller.rb:83:in `set_concert'
+  Rendering concerts/show.html.erb within layouts/application
+  [1m[36mVenue Load (1.2ms)[0m  [1m[34mSELECT "venues".* FROM "venues" WHERE "venues"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:13
+  [1m[36mGig Load (0.8ms)[0m  [1m[34mSELECT "gigs".* FROM "gigs" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 12]]
+  ↳ app/views/concerts/show.html.erb:26
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:29
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:29
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:29
+  Rendered concerts/show.html.erb within layouts/application (Duration: 27.5ms | Allocations: 4065)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+Completed 200 OK in 70428ms (Views: 70417.2ms | ActiveRecord: 5.0ms | Allocations: 10116)
+
+
+Started GET "/concerts/12" for 172.19.0.1 at 2020-02-02 21:30:55 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ConcertsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mConcert Load (0.9ms)[0m  [1m[34mSELECT "concerts".* FROM "concerts" WHERE "concerts"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/concerts_controller.rb:83:in `set_concert'
+  Rendering concerts/show.html.erb within layouts/application
+  [1m[36mVenue Load (0.7ms)[0m  [1m[34mSELECT "venues".* FROM "venues" WHERE "venues"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:13
+  [1m[36mGig Load (0.5ms)[0m  [1m[34mSELECT "gigs".* FROM "gigs" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 12]]
+  ↳ app/views/concerts/show.html.erb:26
+  [1m[36mBand Load (1.1ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:29
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:29
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:29
+  Rendered concerts/show.html.erb within layouts/application (Duration: 27.2ms | Allocations: 4096)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+[Webpacker] Compiling…
+Started GET "/concerts/12" for 172.19.0.1 at 2020-02-02 21:31:41 +0000
+Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by ConcertsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mConcert Load (0.8ms)[0m  [1m[34mSELECT "concerts".* FROM "concerts" WHERE "concerts"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/concerts_controller.rb:83:in `set_concert'
+  Rendering concerts/show.html.erb within layouts/application
+  [1m[36mVenue Load (2.4ms)[0m  [1m[34mSELECT "venues".* FROM "venues" WHERE "venues"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:13
+  [1m[36mGig Load (1.3ms)[0m  [1m[34mSELECT "gigs".* FROM "gigs" WHERE "gigs"."concert_id" = $1 ORDER BY "gigs"."order" ASC[0m  [["concert_id", 12]]
+  ↳ app/views/concerts/show.html.erb:26
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:29
+  [1m[36mBand Load (1.0ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:29
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/views/concerts/show.html.erb:29
+  Rendered concerts/show.html.erb within layouts/application (Duration: 49.7ms | Allocations: 4096)
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+Completed 200 OK in 70285ms (Views: 70273.3ms | ActiveRecord: 5.2ms | Allocations: 21701)
+
+
+[Webpacker] Compilation failed:
+
+[Webpacker] Compiling…
+[Webpacker] Compilation failed:
+
+Completed 200 OK in 163301ms (Views: 163283.7ms | ActiveRecord: 7.6ms | Allocations: 11546)
+
+

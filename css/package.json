@@ -1,0 +1,40 @@
+{
+  "name": "nxns",
+  "private": true,
+  "dependencies": {
+    "@babel/preset-react": "^7.8.3",
+    "@rails/actioncable": "*",
+    "@rails/activestorage": "*",
+    "@rails/ujs": "*",
+    "@rails/webpacker": "*",
+    "@types/react": "^16.9.19",
+    "@types/react-dom": "^16.9.5",
+    "@types/styled-components": "^4.4.2",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "bulma": "^0.8.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "stimulus": "https://github.com/stimulusjs/dev-builds/archive/b8cc8c4/stimulus.tar.gz",
+    "styled-components": "^5.0.0",
+    "ts-loader": "*",
+    "turbolinks": "*",
+    "typescript": "*"
+  },
+  "version": "*",
+  "devDependencies": {
+    "@types/webpack-env": "^1.15.1",
+    "@typescript-eslint/eslint-plugin": "*",
+    "@typescript-eslint/parser": "*",
+    "eslint": "*",
+    "eslint-config-prettier": "*",
+    "eslint-plugin-prettier": "*",
+    "eslint-plugin-react": "*",
+    "prettier": "*",
+    "webpack-dev-server": "*"
+  },
+  "scripts": {
+    "eslint": "eslint '*/**/*.{js,ts,tsx}'",
+    "eslint_fix": "eslint '*/**/*.{js,ts,tsx}' --fix"
+  }
+}

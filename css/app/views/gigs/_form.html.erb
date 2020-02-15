@@ -1,0 +1,8 @@
+<%= simple_form_for(gig) do |form| %>
+  <%= form.association(:band, wrapper: :select) %>
+  <%= form.association(:concert, wrapper: :select) %>
+  <%= form.input(:order) %>
+  <%= form.input(:duration_minutes) %>
+
+  <%= form.button(:submit) %>
+<% end %>
