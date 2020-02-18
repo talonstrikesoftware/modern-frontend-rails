@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :bands
   resources :venues
   resource :sold_out_concerts, only: :show
+    resources :shopping_carts
   devise_for :users
 
   root to: "schedules#show"

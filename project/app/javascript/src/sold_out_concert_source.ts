@@ -1,3 +1,5 @@
+import { createConsumer, Channel } from "@rails/actioncable"
+
 interface SoldOutConcertSubscriber {
   onSoldOutConcertChange: () => void
 }
@@ -8,6 +10,7 @@ export default class SoldOutConcertSource {
   soldOutConcertIDs: number[]
   subscribers: SoldOutConcertSubscriber[]
   started: boolean
+  channel: Channel
 
   static getInstance(): SoldOutConcertSource {
     if (!SoldOutConcertSource.instance) {
@@ -23,15 +26,33 @@ export default class SoldOutConcertSource {
     this.started = false
   }
 
-  start() {
-    console.log("SoldOutConcertSource: starting");
+  start(): void {
     if (this.started) {
       return
     }
     this.started = true
-    this.updateData()
-    setInterval(() => this.updateData(), 1000 * 60)
+    this.channel = this.createChannel(this)
   }
+
+  createChannel(source: SoldOutConcertSource): Channel {
+    return createConsumer().subscriptions.create("ScheduleChannel", {
+      received({ soldOutConcertIds }) {
+        source.soldOutConcertIDs = soldOutConcertIds
+        source.subscribers.forEach(subscriber => 
+          subscriber.onSoldOutConcertChange())
+      },
+    })
+  }
+
+  // start() {
+  //   console.log("SoldOutConcertSource: starting");
+  //   if (this.started) {
+  //     return
+  //   }
+  //   this.started = true
+  //   this.updateData()
+  //   setInterval(() => this.updateData(), 1000 * 60)
+  // }
 
   addSubscriber(subscriber: SoldOutConcertSubscriber) {
     this.subscribers.push(subscriber)

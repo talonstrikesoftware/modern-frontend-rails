@@ -72,20 +72,27 @@ const Row = (props: RowProps) => {
     }
     const newSeatStatuses = updateSeatStatus(seatNumber)
     setSeatStatuses(newSeatStatuses)
-    fetch(`/shopping_carts`, {
-      method: "POST",
-      headers: {
-        "X-CSRF-Token": Rails.csrfToken(),
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        concertId: props.concertId,
-        row: props.rowNumber + 1,
-        seatNumber: seatNumber + 1,
-        status: newSeatStatuses[seatNumber],
-        ticketsToBuy: props.ticketsToBuy,
-      }),
+    props.subscription.perform("added_to_cart", {
+      concertId: props.concertId,
+      row: props.rowNumber + 1,
+      seatNumber: seatNumber + 1,
+      status: newSeatStatuses[seatNumber],
+      ticketsToBuy: props.ticketsToBuy,
     })
+    // fetch(`/shopping_carts`, {
+    //   method: "POST",
+    //   headers: {
+    //     "X-CSRF-Token": Rails.csrfToken(),
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     concertId: props.concertId,
+    //     row: props.rowNumber + 1,
+    //     seatNumber: seatNumber + 1,
+    //     status: newSeatStatuses[seatNumber],
+    //     ticketsToBuy: props.ticketsToBuy,
+    //   }),
+    // })
   }
 
   const seatItems = Array.from(Array(props.seatsInRow).keys()).map(

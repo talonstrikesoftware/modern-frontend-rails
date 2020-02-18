@@ -27,4 +27,21 @@ class Ticket < ApplicationRecord
   belongs_to :ticket_order, optional: true
 
   enum status: %i[unsold held purchased refunded]
+
+  def self.for_concert(concert_id)
+    return Ticket.all unless concert_id
+    Ticket.where(concert_id: concert_id)
+      .order(row: :asc, number: :asc)
+      .all
+      .reject(&:refunded?)
+  end
+
+  def self.grouped_for_concert(concert_id)
+    return [] unless concert_id
+    for_concert(concert_id).map(&:to_concert_h).group_by { |t| t[:row]}.values
+  end
+  
+  def to_concert_h
+    {id: id, row: row, number: number, status: status}
+  end
 end
