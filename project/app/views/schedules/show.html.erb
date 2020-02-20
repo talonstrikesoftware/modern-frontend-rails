@@ -5,14 +5,22 @@
   <section>
     <div class="columns is-gapless">
       <% @schedule.schedule_days.each do |schedule_day| %>
-        <div class="column has-text-centered js--schedule-day"
-             data-action="click->calendar-toggle#toggle"
-             id="day-toggle-<%= schedule_day.day.by_example("2006-01-02") %>">
-          <%= schedule_day.day.by_example("Jan 2") %>
-        </div>
+        <% date_string = schedule_day.day.by_example("2006-01-02") %>
+        <section class="column"
+                  data-controller="calendar-filter"
+                  data-calendar-filter-selected-class="has-text-danger"
+                  data-calendar-filter-date-value="<%= date_string %>">
+          <div class="has-text-centered js--schedule-day"
+                data-action="click->calendar-filter#toggle"
+            data-calendar-filter-target="display">
+            <%= schedule_day.day.by_example("Jan 2") %>
+          </div>
+        </section>
       <% end %>
 
-      <div class="column">Show All</div>
+      <div class="column"
+        data-controller="show-all-filter"
+        data-action="click->show-all-filter#click">Show All</div>
     </div>
 
     <div class="columns is-centered">
@@ -32,15 +40,19 @@
 
   <section class="js--day">
     <% @schedule.schedule_days.each do |schedule_day| %>
+      <% date_string = schedule_day.day.by_example("2006-01-02") %>
       <section class="day-body"
-               id="day-body-<%= schedule_day.day.by_example("2006-01-02") %>"
-               data-controller="day-toggle"
-               data-day-toggle-hidden-class="is-hidden"
-               data-day-toggle-is-closed-class="is-closed"
-               data-day-toggle-is-open-class="is-open"
-               data-day-toggle-hide-class="hide"
-               data-day-toggle-visible-value="true">
-        <h2 class="title is-3">
+                id="day-body-<%= date_string %>"
+                data-controller="day-toggle day-filter"
+                data-day-toggle-hidden-class="is-hidden"
+                data-day-toggle-is-closed-class="is-closed"
+                data-day-toggle-is-open-class="is-open"
+                data-day-toggle-hide-class="hide"
+                data-day-toggle-visible-value="true"
+                data-day-filter-target="element"
+                data-day-filter-date-value="<%= date_string %>"
+                data-day-filter-hidden-class="is-hidden">
+         <h2 class="title is-3">
           <%= schedule_day.day.by_example("Monday, January 2, 2006") %>
           <span class="button js--day-button"
                 data-action="click->day-toggle#toggle">

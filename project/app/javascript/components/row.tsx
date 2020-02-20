@@ -2,6 +2,7 @@ import Rails from "@rails/ujs"
 import * as React from "react"
 import Seat from "../components/seat"
 import { RowData } from "./venue"
+import { Subscription } from "@rails/actioncable"
 
 interface RowProps {
   concertId: number
@@ -9,6 +10,7 @@ interface RowProps {
   seatsInRow: number
   ticketsToBuy: number
   rowData: RowData
+  subscription: Subscription
 }
 
 const Row = (props: RowProps) => {
