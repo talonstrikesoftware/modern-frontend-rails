@@ -1,8 +1,8 @@
 import * as React from "react"
 import styled from "styled-components"
 import { TicketData } from "./venue_reducer"
-import { IsVenueContext, VenueContext, SubscriptionContext } from "./app"
-import { Subscription } from "@rails/actioncable"
+import { useSelector, useDispatch } from "react-redux";
+import { VenueState, seatChange } from "./venue_reducer";
 
 const stateColor = (status: string): string => {
   if (status === "unsold") {
@@ -38,14 +38,14 @@ interface SeatProps {
 }
 
 export const Seat = ({ seatNumber, rowNumber }: SeatProps) => {
-  const context = React.useContext<IsVenueContext>(VenueContext)
-  const subscription = React.useContext<Subscription>(SubscriptionContext)
-  
+  const state = useSelector<VenueState, VenueState>(state => state)
+  const dispatch = useDispatch()
+
   const seatMatch = (ticketList: TicketData[], exact=false): boolean => {
     for (const heldTicket of ticketList) {
       const rowMatch = heldTicket.row == rowNumber
       const seatDiff = heldTicket.number - seatNumber
-      const diff = exact ? 1 : context.state.ticketsToBuy
+      const diff = exact ? 1 : state.ticketsToBuy
       const seatMatch = seatDiff >= 0 && seatDiff < diff
       if (rowMatch && seatMatch) {
         return true
@@ -55,13 +55,13 @@ export const Seat = ({ seatNumber, rowNumber }: SeatProps) => {
   }
 
   const currentStatus = (): string => {
-    if (seatMatch(context.state.otherHeldTickets, true)) {
+    if (seatMatch(state.otherHeldTickets, true)) {
       return 'purchased'
     }
-    if (seatMatch(context.state.myHeldTickets, true)) {
+    if (seatMatch(state.myHeldTickets, true)) {
       return "held"
     }
-    if (seatMatch(context.state.otherHeldTickets) || seatMatch(context.state.myHeldTickets) || seatNumber + context.state.ticketsToBuy - 1 > context.state.seatsInRow) {
+    if (seatMatch(state.otherHeldTickets) || seatMatch(state.myHeldTickets) || seatNumber + state.ticketsToBuy - 1 > state.seatsInRow) {
       return "invalid"
     }
     return "unsold"
@@ -72,15 +72,7 @@ export const Seat = ({ seatNumber, rowNumber }: SeatProps) => {
     if (status === "invalid" || status === "purchased") {
       return
     }
-    const actionType = status === "unsold" ? "holdTicket" : "unholdTicket"
-    context.dispatch({type: actionType, seatNumber, rowNumber})
-    subscription.perform("added_to_cart", {
-      concertId: context.state.concertId,
-      row: rowNumber,
-      seatNumber: seatNumber,
-      status: actionType === "holdTicket" ? "held" : "unsold",
-      ticketsToBuy: context.state.ticketsToBuy,
-    })
+    dispatch(seatChange(status, rowNumber, seatNumber))
   }
 
   return (

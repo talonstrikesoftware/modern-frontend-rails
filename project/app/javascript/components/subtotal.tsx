@@ -1,7 +1,7 @@
 import * as React from "react"
 import styled from "styled-components"
-import { IsVenueContext, VenueContext, SubscriptionContext } from "./app"
-import { Subscription } from "@rails/actioncable"
+import { useSelector, useDispatch } from "react-redux"
+import {VenueState, TicketData, clearCart} from "./venue_reducer"
 
 const Header = styled.div`
   font-size: 1.5rem;
@@ -16,26 +16,25 @@ const Button = styled.div`
   font-weight: bold;
 `
 const SubTotal = () => {
-  const context = React.useContext<IsVenueContext>(VenueContext)
-  const subscription = React.useContext<Subscription>(SubscriptionContext)
+  const myHeldTickets = useSelector<VenueState, TicketData[]>(
+    state => state.myHeldTickets
+  )
+
+  const dispatch = useDispatch()
 
   const onClear = () => {
-    subscription.perform("removed_from_cart", {
-      concertId: context.state.concertId,
-      tickets: context.state.myHeldTickets,
-    })
-    context.dispatch({ type: "clearHolds" })
+    dispatch(clearCart())
   }
 
   return (
     <>
     <Header>
       <span>Current Tickets Purchased:&nbsp;</span>
-      <span>{context.state.myHeldTickets.length}</span>
+      <span>{myHeldTickets.length}</span>
     </Header>
     <Header>
       <span>Current Tickets Cost:&nbsp;</span>
-      <span>${context.state.myHeldTickets.length * 15}.00</span>
+      <span>${myHeldTickets.length * 15}.00</span>
     </Header>
     <Button className="button is-primary" onClick={onClear}>Clear Tickets</Button>
     </>
