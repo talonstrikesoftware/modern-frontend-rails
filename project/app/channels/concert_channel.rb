@@ -16,7 +16,14 @@ class ConcertChannel < ApplicationCable::Channel
     )
 
     workflow.run
-    result = Ticket.grouped_for_concert(data["concertId"])
-    ActionCable.server.boradcast("concert_#{data["concertId"]}", result)
+    result = Ticket.held_data_for_concert(data["concertId"])
+    ActionCable.server.broadcast("concert_#{data["concertId"]}", result)
   end
+
+  def removed_from_cart(data)
+    workflow = ClearCart.new(concert_id: data["concertId"], tickets: data["tickets"])
+    workflow.run
+    result = Ticket.held_data_for_concert(data["concertId"])
+    ActionCable.server.broadcast("concert_#{data["concertId"]}", result)
+  end  
 end

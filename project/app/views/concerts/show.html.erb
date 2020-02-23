@@ -39,7 +39,8 @@
 <div id="react-element"
      data-concert-id="<%= @concert.id %>"
      data-rows="<%= @concert.venue.rows %>"
-     data-seats-per-row="<%= @concert.venue.seats_per_row %>"/>
+     data-seats-per-row="<%= @concert.venue.seats_per_row %>"
+     data-held-tickets="<%= @tickets.to_json %>"/>
 
 <div class="actions">
   <%= link_to("Edit", edit_concert_path(@concert)) %>

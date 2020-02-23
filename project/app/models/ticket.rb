@@ -40,6 +40,9 @@ class Ticket < ApplicationRecord
     return [] unless concert_id
     for_concert(concert_id).map(&:to_concert_h).group_by { |t| t[:row]}.values
   end
+  def self.held_data_for_concert(concert_id)
+    for_concert(concert_id).select(&:held?).map(&:to_concert_h)
+  end
   
   def to_concert_h
     {id: id, row: row, number: number, status: status}

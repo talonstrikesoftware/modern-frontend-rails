@@ -18,6 +18,7 @@ class ConcertsController < ApplicationController
   # GET /concerts/1
   # GET /concerts/1.json
   def show
+    @tickets = Ticket.held_data_for_concert(params["id"])
   end
 
   # GET /concerts/new
